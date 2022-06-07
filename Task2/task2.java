@@ -15,47 +15,61 @@ import java.util.Scanner;
 
 public class task2 {
 
-    public static void main(String[] args) {
-        // input the numbers
-        Scanner scanner = new Scanner(System.in);
-        System.out.printf("int a: ");
-        int a = scanner.nextInt();
-        System.out.printf("int b: ");
-        int b = scanner.nextInt();
+    public static void main(String[] args) throws Exception {
+
+        operations();
+
+    }
+
+
+    public static int inputTheNumbers() throws Exception {
+        int n = 0;
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            Boolean flag = scanner.hasNextInt();
+            if (flag) {
+                n = scanner.nextInt();
+                break;
+            }
+            else{
+                System.out.println("Введите целое число");
+            }
+        }
+
+        return n;
+
+    }
+
+    public static void operations () throws Exception {
+
+        System.out.println("Введите число a: ");
+        int a = inputTheNumbers();
+        System.out.println("Введите число b: ");
+        int b = inputTheNumbers();
+
         int c = 2;
         int d = 1;
 
-        System.out.printf("c = %d, d =  %d \n", c, d);
-        scanner.close();
-
-        String result = new String();
+        StringBuilder ret = new StringBuilder();
 
         if (a > b) {
-            result = "нет решения";
-            System.out.printf(result);
+            ret.append("нет решения");
+            System.out.println(ret);
         }
 
         else {
             while (b != a) {
                 if (b % c == 0 && (b/c >= a)) {
                     b = b / c;
-                    result += "k1, ";
+                    ret.insert(0,"k1 ");
                 } else {
                     b = b - d;
-                    result += "k2, ";
+                    ret.insert(0,"k2 ");
                 }
             }
-            String delimeter = ", ";
-            String[] subStr;
-            subStr = result.split(delimeter);
 
-
-            for(int i = subStr.length - 1; i >= 0; i--) {
-                System.out.printf(subStr[i] + ", ");
-                System.out.println();
-            }
+            System.out.println(ret);
 
         }
-
     }
 }
