@@ -21,7 +21,6 @@ public class task2 {
 
     }
 
-
     public static int inputTheNumbers() throws Exception {
         int n = 0;
         while (true) {
