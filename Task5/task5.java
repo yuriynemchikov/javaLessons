@@ -5,10 +5,11 @@ package Task5;
 // Требуется восстановить выражение до верного равенства.
 // Предложить хотя бы одно решение или сообщить, что его нет.
 
+import javax.sound.sampled.Line;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class task5 {
 
@@ -27,35 +28,31 @@ public class task5 {
 //        }
 //        return -1;
 //    }
+
+    public static void main(String[] args) throws Exception {
+
+        readFile();
+        RegexMatches();
+
+    }
+
     public static String readFile() throws Exception {
 
         BufferedReader line = new BufferedReader(new FileReader("input.txt"));
         String Line = line.readLine();
+
         return Line;
-    }
-
-    public static String parseLine() {
-
-
 
     }
 
 
-    public static void main(String[] args) {
+    public static void RegexMatches() {
+        String str = "";
+        String pattern = "^\\d$";
 
-
-    System.out.println(getString());
-
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        System.out.println(m.matches());
     }
-
-    public static String getString(){
-
-        int q = ScanTheNumbers();
-        int w = ScanTheNumbers();
-        int e = ScanTheNumbers();
-        return String.format("%d + %d = %d", q,w,e);
-    }
-
-
-
 }
+
