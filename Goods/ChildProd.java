@@ -8,7 +8,8 @@ import Goods.Product;
 
 public class ChildProd extends Product {
 
-    private Integer minAge; // Минимальный возраст
+    private Integer minAge;// Минимальный возраст
+    private String hypoallergenicity; // Гипоаллергенность
 
     /**
      *
@@ -17,15 +18,17 @@ public class ChildProd extends Product {
      * @param quantity
      * @param unit
      * @param minAge
+     * @param hypoallergenicity
      */
 
-    public ChildProd(String title, Double price, Integer quantity, String unit, Integer minAge) {
+    public ChildProd(String title, Double price, Integer quantity, String unit, Integer minAge, String hypoallergenicity) {
         super(title, price, quantity, unit);
         this.minAge = minAge;
+        this.hypoallergenicity = hypoallergenicity;
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s Мин.возраст: %d | ", super.getInfo(), this.minAge);
+        return String.format("%s Мин.возраст: %d | Гипоаллергенность: %s | ", super.getInfo(), this.minAge, this.hypoallergenicity);
     }
 }

@@ -13,6 +13,6 @@ public class Drinks extends Product {
 
     @Override
     public String getInfo() {
-        return String.format("%s Объем: %f |", super.getInfo(), this.volume);
+        return String.format("%s Объем: %.2f |", super.getInfo(), this.volume);
     }
 }
