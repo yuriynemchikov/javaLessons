@@ -5,54 +5,86 @@ package Task5;
 // Требуется восстановить выражение до верного равенства.
 // Предложить хотя бы одно решение или сообщить, что его нет.
 
-import javax.sound.sampled.Line;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public class task5 {
 
-//    public static int ScanTheNumbers() {
-//        int n = 0;
-//        Scanner scanner = new Scanner(System.in);
-//        boolean f = false;
-//        while (!f) {
-//            System.out.println("Введите число: ");
-//            f = scanner.hasNextInt();
-//            if (f) {
-//                n = scanner.nextInt();
-//                return n;
-//            }
-//            scanner.next();
-//        }
-//        return -1;
-//    }
+    public static void main(String[] args) {
+        String input = "?4 + 45 = 6?";
 
-    public static void main(String[] args) throws Exception {
+        // remove spaces if they exist
+        input = input.replace(" ", "");
 
-        readFile();
-        RegexMatches();
+        // count question marks
+        int questionCount = getQuestionMarksCount(input);
+        int[] vector = new int[questionCount];
+        Arrays.fill(vector, 0);
 
+        // brute force all vector combination 0..0 to 9..9 and check equation
+        boolean found = false;
+        boolean finish = false;
+        while (!finish) {
+            String equation = replaceQuestions(input, vector);
+            if (isValid(equation)) {
+                System.out.println(equation);
+                found = true;
+            }
+
+            boolean changed = rollVector(vector);
+            if (!changed) {
+                finish = true;
+            }
+        }
+        if (!found) {
+            System.out.println("There is no option to get valid equation " + input);
+        }
     }
 
-    public static String readFile() throws Exception {
+    private static boolean isValid(String equation) {
+        // parse as q+w=e, split on + or =
+        String[] parts = equation.split("\\+|=");
 
-        BufferedReader line = new BufferedReader(new FileReader("input.txt"));
-        String Line = line.readLine();
+        int q = Integer.parseInt(parts[0]);
+        int w = Integer.parseInt(parts[1]);
+        int e = Integer.parseInt(parts[2]);
 
-        return Line;
-
+        return q + w == e;
     }
 
-
-    public static void RegexMatches() {
-        String str = "";
-        String pattern = "^\\d$";
-
-        Pattern r = Pattern.compile(pattern);
-        Matcher m = r.matcher(str);
-        System.out.println(m.matches());
+    private static String replaceQuestions(String input, int[] vector) {
+        char[] chars = input.toCharArray();
+        int index = 0;
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '?') {
+                chars[i] = Character.forDigit(vector[index], 10);
+                index++;
+            }
+        }
+        return new String(chars);
     }
+
+    private static boolean rollVector(int[] vector) {
+        for (int i = 0; i < vector.length; i++) {
+            int digit = vector[i];
+            if (digit < 9) {
+                vector[i] = digit + 1;
+                return true;
+            }
+            vector[i] = 0;
+        }
+        return false;
+    }
+
+    private static int getQuestionMarksCount(String input) {
+        int count = 0;
+        char[] charArray = input.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == '?') {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
 
