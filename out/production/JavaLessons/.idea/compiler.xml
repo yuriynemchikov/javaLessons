@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="JavaLessons" options="--add-exports java.xml/com.sun.org.apache.xalan.internal.lib=ALL-UNNAMED" />
+      <module name="JavaLessons" options="--add-exports java.xml/com.sun.org.apache.xalan.internal.lib=ALL-UNNAMED --add-exports java.xml.crypto/com.sun.org.apache.xml.internal.security.keys.keyresolver=ALL-UNNAMED" />
     </option>
   </component>
 </project>
