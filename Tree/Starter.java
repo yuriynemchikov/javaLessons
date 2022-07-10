@@ -14,7 +14,7 @@ public class Starter {
         gt.add(p01, p011);
         gt.add(p01, p012);
 
-        var r = new Research(gt).spend(p01, Connection.Relationship.children);
+        var r = new Research(gt).spend(p0, Connection.Relationship.CHILDREN);
         System.out.println(r);
 
 

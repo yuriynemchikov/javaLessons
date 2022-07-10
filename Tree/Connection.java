@@ -1,25 +1,29 @@
 package Tree;
 
 public class Connection {
-    Human h1;
+    Human human1;
     Relationship re;
-    Human h2;
+    Human human2;
 
     enum Relationship {
-        parent,
-        children;
+        PARENT,
+        CHILDREN;
     }
 
     public Connection(Human h1, Relationship re, Human h2){
-        this.h1 = h1;
+        this.human1 = h1;
         this.re = re;
-        this.h2 = h2;
+        this.human2 = h2;
+    }
+
+    public String getHuman1() {
+        return String.valueOf(human1);
     }
 
 
     @Override
     public String toString() {
-        return String.format("<%s %s %s>", h1, re, h2);
+        return String.format("<%s %s %s>", human1, re, human2);
     }
 
 

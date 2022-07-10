@@ -3,7 +3,7 @@ package Tree;
 import java.util.ArrayList;
 
 public class Human {
-    String name;
+    protected String name;
 
     public Human(String name) {
         this.name = name;
@@ -13,6 +13,8 @@ public class Human {
         return name;
     }
 
-
+    public boolean equals(Human human) {
+        return this.name == human.name;
+    }
 }
 

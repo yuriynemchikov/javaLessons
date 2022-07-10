@@ -11,8 +11,8 @@ public class Research {
     public ArrayList<Human> spend(Human h, Connection.Relationship re) {
         var result = new ArrayList<Human>();
         tree.forEach((t) -> {
-            if (t.h1.name == h.name && t.re == re) {
-                result.add(t.h2);
+            if (t.human1.name.equals(h.name)  && t.re == re) {
+                result.add(t.human2);
             }
         });
         return result;
