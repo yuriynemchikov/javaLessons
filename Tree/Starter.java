@@ -2,11 +2,11 @@ package Tree;
 
 public class Starter {
     public static void start() {
-        var p0 = new Human("Наташа");
-        var p01 = new Human("Коля");
-        var p02 = new Human("Маша");
-        var p011 = new Human("Женя");
-        var p012 = new Human("Ваня");
+        var p0 = new Person("Наташа", Sex.FEMALE);
+        var p01 = new Person("Коля", Sex.MALE);
+        var p02 = new Person("Маша", Sex.FEMALE);
+        var p011 = new Person("Женя", Sex.MALE);
+        var p012 = new Person("Ваня", Sex.MALE);
 
         GeoTree gt = new GeoTree();
         gt.add(p0, p01);

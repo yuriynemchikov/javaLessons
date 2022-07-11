@@ -8,11 +8,11 @@ public class Research {
     public Research(GeoTree geoTree) {
         tree = geoTree.getTree();
     }
-    public ArrayList<Human> spend(Human h, Connection.Relationship re) {
-        var result = new ArrayList<Human>();
+    public ArrayList<Person> spend(Person h, Connection.Relationship re) {
+        var result = new ArrayList<Person>();
         tree.forEach((t) -> {
-            if (t.human1.name.equals(h.name)  && t.re == re) {
-                result.add(t.human2);
+            if (t.person1.name.equals(h.name)  && t.re == re) {
+                result.add(t.person2);
             }
         });
         return result;

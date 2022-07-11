@@ -9,7 +9,7 @@ public class GeoTree {
         return tree;
     }
 
-    public void add(Human parent, Human children){
+    public void add(Person parent, Person children){
         tree.add(new Connection(parent, Connection.Relationship.CHILDREN, children));
         tree.add(new Connection(children, Connection.Relationship.PARENT, parent));
     }
