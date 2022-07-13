@@ -7,8 +7,13 @@ public abstract class Human {
         this.name = name;
     }
 
-    public String toString() {
+    public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, %s", this.name);
     }
 
 }

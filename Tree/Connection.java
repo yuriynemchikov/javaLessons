@@ -1,9 +1,9 @@
 package Tree;
 
 public class Connection {
-    Person person1;
-    Relationship re;
-    Person person2;
+    private Person person1;
+    private Relationship re;
+    private Person person2;
 
     enum Relationship {
         PARENT,
@@ -16,14 +16,21 @@ public class Connection {
         this.person2 = p2;
     }
 
-    public String getPerson1() {
-        return String.valueOf(person1);
-    }
-
-
     @Override
     public String toString() {
         return String.format("<%s %s %s>", person1, re, person2);
+    }
+
+    public Person getPerson1(){
+        return person1;
+    }
+
+    public Relationship getRelationship(){
+        return re;
+    }
+
+    public Person getPerson2(){
+        return person2;
     }
 
 
