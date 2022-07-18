@@ -19,4 +19,11 @@ public class Research {
 
     }
 
+    public String allFamily(){
+        for(Connection family : tree) {
+            System.out.println(family);
+        }
+        return null;
+    }
+
 }

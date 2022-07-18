@@ -1,6 +1,7 @@
 package Tree;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class GeoTree {
     private ArrayList<Connection> tree = new ArrayList<>();
@@ -13,4 +14,6 @@ public class GeoTree {
         tree.add(new Connection(parent, Connection.Relationship.CHILDREN, children));
         tree.add(new Connection(children, Connection.Relationship.PARENT, parent));
     }
+
+
 }
