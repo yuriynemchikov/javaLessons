@@ -1,17 +1,19 @@
 package Planner;
 
-import java.util.Date;
+import java.util.ArrayList;
 
-public class Task {
+public class Task extends ArrayList<Task> {
     private int id;
-    private Date dateOfAdd;
+    private String dateOfAdd;
     private String deadline;
     private String nameAuthor;
     private Priority priorityLevel;
 
-    public Task(int id, String deadline, String name, Priority priorityLevel){
+    private Task t;
+
+    public Task(int id, String dateOfAdd, String deadline, String name, Priority priorityLevel){
         this.id = id;
-        this.dateOfAdd = new Date();
+        this.dateOfAdd = dateOfAdd;
         this.deadline = deadline;
         this.nameAuthor = name;
         this.priorityLevel = priorityLevel;
@@ -21,7 +23,7 @@ public class Task {
         return id;
     }
 
-    public Date getDateOfAdd(){
+    public String getDateOfAdd(){
         return dateOfAdd;
     }
 
@@ -56,6 +58,12 @@ public class Task {
 
     public void setPriorityLevel(Priority level){
         this.priorityLevel = level;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("id: %d, Дата добавления: %s, Дедлайн: %s, Автор задачи: %s, Приоритет: %s", this.id, this.dateOfAdd,
+                this.deadline, this.nameAuthor, this.priorityLevel);
     }
 
 }
