@@ -2,21 +2,12 @@ package Planner;
 
 import java.util.ArrayList;
 
-public class Data {
+public class Data<T> extends ArrayList {
 
     Task task;
-    private ArrayList<Task> db = new ArrayList<>();
+    private ArrayList<T> db;
 
-    public Data() {}
-
-    public void add(Task t) {
-        db.add(t);
+    public void add(ArrayList<T> db, Task t) {
+        db.add((T) t);
     }
-
-    @Override
-    public String toString() {
-        return String.format("id: %d, Дата добавления: %s, Дедлайн: %s, Автор задачи: %s, Приоритет: %s", task.getId(), task.getDateOfAdd(),
-                task.getDeadline(), task.getName(), task.getLevel());
-    }
-
 }

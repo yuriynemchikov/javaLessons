@@ -1,7 +1,12 @@
 package Planner;
 
+import java.util.ArrayList;
+
 public class Printer<T> {
-    public void print(T args){
-        System.out.print(args);
+
+    public void print(ArrayList<T> tasks) {
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println(tasks.get(i));
+        }
     }
 }

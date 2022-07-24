@@ -1,9 +1,10 @@
 package Planner;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Task extends ArrayList<Task> {
-    private int id;
+    private UUID id;
     private String dateOfAdd;
     private String deadline;
     private String nameAuthor;
@@ -11,15 +12,15 @@ public class Task extends ArrayList<Task> {
 
     private Task t;
 
-    public Task(int id, String dateOfAdd, String deadline, String name, Priority priorityLevel){
-        this.id = id;
+    public Task(String dateOfAdd, String deadline, String name, Priority priorityLevel){
+        this.id = UUID.randomUUID();
         this.dateOfAdd = dateOfAdd;
         this.deadline = deadline;
         this.nameAuthor = name;
         this.priorityLevel = priorityLevel;
     }
 
-    public int getId(){
+    public UUID getId(){
         return id;
     }
 
@@ -62,7 +63,7 @@ public class Task extends ArrayList<Task> {
 
     @Override
     public String toString() {
-        return String.format("id: %d, Дата добавления: %s, Дедлайн: %s, Автор задачи: %s, Приоритет: %s", this.id, this.dateOfAdd,
+        return String.format("id: %s, Дата добавления: %s, Дедлайн: %s, Автор задачи: %s, Приоритет: %s", this.id, this.dateOfAdd,
                 this.deadline, this.nameAuthor, this.priorityLevel);
     }
 
