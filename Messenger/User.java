@@ -3,9 +3,9 @@ package Messenger;
 import java.util.UUID;
 
 public abstract class User {
-    private UUID id;
-    private String userName;
-    private Chat chatRoom;
+    protected UUID id;
+    protected String userName;
+    protected Chat chatRoom;
     protected ChatStatus status;
 
     public User (String username, Chat chatRoom) {

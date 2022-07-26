@@ -1,6 +1,6 @@
 package Messenger;
 
-public interface Chat {
+interface Chat {
     public void sendMessage(String text, User user);
 
     public void addClient(User user);

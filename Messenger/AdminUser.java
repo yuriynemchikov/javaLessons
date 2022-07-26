@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class AdminUser extends User implements Admin{
 
-    User user;
-
     public AdminUser(String username, Chat chatRoom) {
         super(username, chatRoom);
         ChatStatus status = ChatStatus.ADMIN;
@@ -18,7 +16,7 @@ public class AdminUser extends User implements Admin{
     }
 
     @Override
-    public void deleteUser(ArrayList users) {
+    public void deleteUser(ArrayList users, User user) {
         users.remove(user.getId());
     }
 }
